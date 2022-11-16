@@ -3,9 +3,13 @@ import { Fontisto } from '@expo/vector-icons';
 
 import Logo from '../assets/logo.svg';
 import { Button } from "../components/Button";
+import { useAuth } from "../hooks/useAuth";
 
 
 export default function SignIn() {
+  const { singIn, user} = useAuth();
+
+  console.log('Dados do usuario =>', user);
 
   return (
     <Center flex={1} bgColor='gray.900'>
@@ -16,9 +20,8 @@ export default function SignIn() {
         title='ENTRAR COM GOOGLE'
         leftIcon={<Icon as={Fontisto} name='google' color="white" size="md" />}
         mt={12}
-        _loading={{
-          _spinner: { color: 'white' }
-        }}
+    
+        onPress={singIn}
       />
       <Text color="white" textAlign="center" mt={4}>
         Não utilizamos nenhuma informação além{'\n'}
