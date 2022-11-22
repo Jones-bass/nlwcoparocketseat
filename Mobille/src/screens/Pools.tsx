@@ -9,6 +9,7 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { api } from '../services/api';
 import { Loading } from '../components/Loading';
 import { PoolCard, PoolCardPros } from '../components/PoolCard';
+import { EmptyMyPoolList } from '../components/EmptyMyPoolList';
 
 
 export function Pools() {
@@ -61,6 +62,7 @@ export function Pools() {
                 onPress={() => navigate('details', { id: item.id })}
               />
             )}
+            ListEmptyComponent={<EmptyMyPoolList />}
             showsVerticalScrollIndicator={false}
             _contentContainerStyle={{ pb: 10 }}
             px={5}
