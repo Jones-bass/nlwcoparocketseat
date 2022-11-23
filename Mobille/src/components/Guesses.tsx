@@ -26,6 +26,7 @@ export function Guesses({ poolId, code }: Props) {
 
       const response = await api.get(`/pools/${poolId}/games`);
       setGames(response.data.games);
+   
     } catch (error) {
 
       toast.show({
